@@ -1,2 +1,3 @@
 ### README for Linear Margin Perceptron ###
-An implementation of Margin Perceptron, Polynomial Kernel and Gaussian Kernel with pure python codes
+An implementation of Margin Perceptron with pure python code
+A group project of CMSC5724 @ CUHK 
