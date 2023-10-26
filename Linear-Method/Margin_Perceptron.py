@@ -92,7 +92,7 @@ def Margin_Perceptron(file_list):
         max_epochs = max_iteration_calculate(radius=radius, gamma_guess=radius)
         gamma_guess = radius
 
-        while Training(X, y, w, max_epoch=max_epochs, dimension=dimension, radius=radius):
+        while Training(X, y, w, max_epoch=max_epochs, dimension=dimension, radius=gamma_guess):
             gamma_guess /= 2.0
             # print('gamma_guess:', gamma_guess)
             max_epochs = max_iteration_calculate(radius=radius, gamma_guess=gamma_guess)
