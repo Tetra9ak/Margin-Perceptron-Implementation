@@ -38,7 +38,7 @@ def max_iteration_calculate(radius, gamma_guess):
 #在Training_polykernel的训练开始时，将S1 S2初始化为空集，每迭代一个点对其内容进行更新；并且在更新w时进行修改
 #迭代的具体修改见iteration_polykernel的函数中
 
-
+#由于核方法的margin并没有讲过，我还不会，所以没有实现。直接按照最大迭代数停止即可，这个方法我得到的结果不是参数w，而是violation点集S1, S2. 并且在程序后随机找了训练集中的四个点进行测试。
 
 def POLYkernel(vector1,vector2,polyKernel_c):
     len1 = len(vector1)
