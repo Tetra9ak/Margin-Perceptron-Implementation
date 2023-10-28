@@ -78,7 +78,7 @@ def Training(X, y, w, max_epoch, dimension, radius):
                 # label= 1 -> w += 1 * p
                 w[i] += y[violation] * float(X[violation][i])
             print('w after updating', str(w))
-            print('\n\n\n\n\n')
+            print('\n\n')
         else:
             return False
         return True
@@ -87,6 +87,7 @@ def Training(X, y, w, max_epoch, dimension, radius):
 def Margin_Perceptron(file_list):
     # Get Dataset and parameters
     for file in file_list:
+        print("Start Processing file:", file)
         X, y, dimension, radius = read_from_txt(file)
         w = [0 for _ in range(dimension)]
         max_epochs = max_iteration_calculate(radius=radius, gamma_guess=radius)
@@ -102,6 +103,7 @@ def Margin_Perceptron(file_list):
                 break
         print('The final gamma_guess is:', gamma_guess)
         print('The final w found by margin perceptron is:', w)
+        print('\n\n\n\n')
 
 
 File = ["d2r16n10000.txt",
