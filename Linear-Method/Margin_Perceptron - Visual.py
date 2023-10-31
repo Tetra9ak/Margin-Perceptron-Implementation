@@ -53,10 +53,10 @@ def iteration(X, y, w, dimension, gamma_guess):
             # Whether a violation point or not
             # Condition1 : label of sample and dot product result have different sign
             # Condition2 : sample is so close to plane
-            margin_this=(dot_product_value*point_label)/(math.sqrt(sum(list(map(lambda x: x ** 2, w)))))
+            margin_this = (dot_product_value * point_label) / (math.sqrt(sum(list(map(lambda x: x ** 2, w)))))
             # print('margin this:',margin_this)
             # print('gammaguess',gamma_guess / 2.0)
-            if (  margin_this< (gamma_guess / 2.0)
+            if (margin_this < (gamma_guess / 2.0)
                     or (dot_product_label * point_label < 0)):
                 violation_exist = index
                 break
@@ -87,18 +87,17 @@ def Training(X, y, w, max_epoch, dimension, radius):
         return True
 
 
-
-
-#2D data perceptron visualization
+# 2D data perceptron visualization
 import random
 import matplotlib.pyplot as plt
 
-def Visualization(file,X,y,w):
-    if(file=="d2r16n10000.txt"):
+
+def Visualization(file, X, y, w):
+    if file == "d2r16n10000.txt":
+        radius = 16
         sampled_indices = random.sample(range(10000), 1000)
 
         sampled_X = [X[i] for i in sampled_indices]
-
 
         for items in sampled_X:
             items[0] = float(items[0])
@@ -109,11 +108,11 @@ def Visualization(file,X,y,w):
         colors = ['red' if y == 1 else 'blue' for y in sampled_Y]
         plt.scatter([x[0] for x in sampled_X], [x[1] for x in sampled_X], c=colors)
         # 绘制直线
-        x = [-1, 1]
+        x = [-radius, radius]
         y = [(w[0] * xi) / (-w[1]) for xi in x]
         max_len = max([abs(yi) for yi in y])
         y = [(yi / abs(yi)) * max_len for yi in y]
-        plt.plot(x, y, color='yellow')
+        plt.plot(x, y, color='black')
 
         # 显示图像
         plt.show()
@@ -136,7 +135,7 @@ def Margin_Perceptron(file_list):
             # print('gamma_guess:', gamma_guess)
             max_epochs = max_iteration_calculate(radius=radius, gamma_guess=gamma_guess)
             # print('max_epochs:', max_epochs)
-            Visualization(file,X,y,w)
+            Visualization(file, X, y, w)
 
             if gamma_guess <= 1e-8:
                 print('Due to approximate requirement, the Margin Perceptron stops')
@@ -146,16 +145,7 @@ def Margin_Perceptron(file_list):
         print('The final w found by margin perceptron is:', w)
 
 
-
-
-
-
 File = ["d2r16n10000.txt",
         "d4r24n10000.txt",
         "d8r12n10000.txt"]
 Margin_Perceptron(File)
-
-
-
-
-
