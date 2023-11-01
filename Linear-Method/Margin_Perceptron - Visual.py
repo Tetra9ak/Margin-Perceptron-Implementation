@@ -108,7 +108,7 @@ def Visualization(file, X, y, w):
         colors = ['red' if y == 1 else 'blue' for y in sampled_Y]
         plt.scatter([x[0] for x in sampled_X], [x[1] for x in sampled_X], c=colors)
         # 绘制直线
-        x = [-radius, radius]
+        x = [-15, 15]
         y = [(w[0] * xi) / (-w[1]) for xi in x]
         max_len = max([abs(yi) for yi in y])
         y = [(yi / abs(yi)) * max_len for yi in y]
